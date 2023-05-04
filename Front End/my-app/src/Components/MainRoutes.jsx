@@ -7,6 +7,7 @@ import Payment from "../Pages/Payment";
 import Products from "../Pages/Products";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import CartLoading from "./CartLoading";
 function MainRoutes() {
   return (
     <Routes>
