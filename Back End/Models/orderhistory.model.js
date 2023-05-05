@@ -1,7 +1,8 @@
 const mongoose= require('mongoose')
 
 
-const ProductSchema = mongoose.Schema({
+const OrderSchema = mongoose.Schema({
+    time:String,
     title:String,
     price:Number,
     desc:String,
@@ -16,7 +17,7 @@ const ProductSchema = mongoose.Schema({
     versionKey:false
 })
 
-const Product = mongoose.model('product',ProductSchema)
+const Order = mongoose.model('order',OrderSchema)
 module.exports={
-    Product
+    Order
 }
