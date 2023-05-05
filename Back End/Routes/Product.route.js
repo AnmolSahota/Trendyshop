@@ -1,10 +1,15 @@
 
 const express = require('express')
-const { CartPostProduct } = require('../Controllers/Product.controller')
+const { CartPostProduct,CartupdateProduct,CartgetProduct,CartdeleteProduct } = require('../Controllers/Product.controller')
 const { Auth } = require('../Middleware/Auth')
 const productRouter= express.Router()
 
-productRouter.post('/',CartPostProduct)
+productRouter.post('/',Auth,CartPostProduct)
+productRouter.get('/',Auth,CartgetProduct)
+productRouter.patch('/:id',Auth,CartupdateProduct)
+productRouter.delete('/',Auth,CartdeleteProduct)
+
+
 
 
 module.exports={

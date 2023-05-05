@@ -7,9 +7,9 @@ require("dotenv").config();
 const UserRegister = async (req, res) => {
     const { name, password, email, gender, age } = req.body
     try {
-        bcrypt.hash(password, 5, function (err, hash) {
+        bcrypt.hash(password, 5, async (err, hash) =>{
             const NewUserRegisteration = new User({name,email,gender,age,password:hash})
-            NewUserRegisteration.save()
+            await NewUserRegisteration.save()
             res.status(200).send({ "msg": "Account has been created successfully" })
         })
 
@@ -38,7 +38,17 @@ const{email,password}=req.body
 }
 
 
+const GetAllusers = async (req, res) => {
+    try {
+       const allusers= await User.find() 
+        res.status(200).send(allusers)
+    } catch (error) {
+        res.status(400).send({ "msg": error })
+    }
+
+}
+
 
 module.exports = {
-    UserLogin, UserRegister
+    UserLogin, UserRegister,GetAllusers
 }
