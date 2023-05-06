@@ -8,6 +8,7 @@ import Products from "../Pages/Products";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import CartLoading from "./CartLoading";
+import SingleProduct from "../Pages/SingleProduct";
 function MainRoutes() {
   return (
     <Routes>
@@ -15,7 +16,7 @@ function MainRoutes() {
       <Route path="/admin" element={<Admin />}></Route>
       <Route path="/payment" element={<Payment />}></Route>
       <Route path="/product" element={<Products />}></Route>
-      <Route path="/singleProduct/:category/:id" element={<Products />}></Route>
+      <Route path="/singleProduct/:category/:id" element={<SingleProduct />}></Route>
       <Route path="/cart" element={<Cart />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/register" element={<Register />}></Route>

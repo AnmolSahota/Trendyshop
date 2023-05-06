@@ -120,3 +120,10 @@ export let getdataAxios = async () => {
   });
   return temp;
 };
+
+export let getSingleProductAction = async (id, category) => {
+  let res = await axios.get(
+    `https://good-pear-cheetah-tutu.cyclic.app/${category}/${id}`
+  );
+  return res.data;
+};
