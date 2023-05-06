@@ -6,8 +6,7 @@ import {
   SkeletonText,
 } from "@chakra-ui/react";
 import React from "react";
-
-function CartLoading() {
+function SingleProductLoading() {
   return (
     <>
       <Grid
@@ -16,22 +15,21 @@ function CartLoading() {
         p={"20px"}
       >
         <Box>
-          <Grid>
-            {new Array(4).fill(0).map((ele) => (
+          <Grid gridTemplateColumns={"20% 1fr"}>
+            {new Array(2).fill(0).map((ele) => (
               <Box
                 key={Math.random()}
-                padding="30"
-                //  boxShadow="lg"
+                padding="1"
+                height={"100vh"}
                 bg="white"
               >
-                <Skeleton height="15vh" />
+                <Skeleton height="100vh" />
               </Box>
             ))}
           </Grid>
         </Box>
         <Box
           padding="30"
-          // boxShadow="lg"
           bg="white"
           h={"100vh"}
           display={{ base: "none", md: "block" }}
@@ -44,4 +42,4 @@ function CartLoading() {
   );
 }
 
-export default CartLoading;
+export default SingleProductLoading;
