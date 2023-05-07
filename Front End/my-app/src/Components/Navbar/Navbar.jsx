@@ -37,11 +37,11 @@ import NavDrawer from "./NavDrawer";
 
 const NAV_ITEMS = [
   {
-    label: "MiniTV",
+    label: "Products",
     href: "/",
   },
   {
-    label: "Sell",
+    label: "MiniTV",
     href: "/",
   },
   {
