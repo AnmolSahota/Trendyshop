@@ -22,7 +22,7 @@ import { DeleteIcon, ExternalLinkIcon } from "@chakra-ui/icons"
 import { deletedata, postdata } from '../../Redux/AdminCRUD/action';
 import { Vitamin } from '../../Redux/AdminAlldataReducer/action';
 import { Link } from 'react-router-dom';
-
+import { useToast } from "@chakra-ui/react";
 const initialProductFormData = {
     title: '',
     price: 0,
@@ -42,6 +42,8 @@ const AdminPanel = () => {
     const [deleteflag, setdeletefalg] = useState(false)
     const [addflag, setaddflag] = useState(false)
     const [page, setpage] = useState(1)
+    const toast = useToast();
+
     const handleProductInputChange = (event) => {
         const { name, value } = event.target;
         // let data = name=="images"?[...value] : value
@@ -61,9 +63,16 @@ const AdminPanel = () => {
         dispatch(postdata(productFormData))
             .then(() => {
                 dispatch(Vitamin)
-                
+
             })
-            alert("item added successfully")
+
+        toast({
+            title: "Congrulations",
+            description: "item added successfully!!",
+            status: "success",
+            duration: 1000,
+            isClosable: true,
+          })
         setProductFormData(initialProductFormData)
         // setProducts([...products, productFormData])
     };
@@ -74,9 +83,16 @@ const AdminPanel = () => {
         dispatch(deletedata(index))
             .then(() => {
                 dispatch(Vitamin)
-               
+
             })
-            alert("item removed successfully")
+
+            toast({
+                title: "Congrulations",
+                description: "item deleted successfully!!",
+                status: "success",
+                duration: 1000,
+                isClosable: true,
+              })
     };
 
     const handleEditProduct = (index) => {
@@ -94,7 +110,7 @@ const AdminPanel = () => {
 
     return (
         <Stack m={"auto"} mt={"15px"} w={"80%"} >
-            <Text style={{ fontWeight: "bolder", fontSize: "35px" }}>Add A Product</Text>
+            <Text style={{ margin: "auto", fontWeight: "bolder", fontSize: "35px" }}>Add A Product</Text>
             <FORM onSubmit={handleAddProduct}>
                 <DIV>
                     <FormControl id="title">
@@ -184,7 +200,9 @@ const AdminPanel = () => {
                         />
                     </FormControl>
                 </DIV>
-                <Button style={{ marginTop: "20px", width: "300px", backgroundColor: "#FF6F61", color: "white" }} type="submit">Add Product</Button>
+
+                <Button style={{ display: "block", margin: "20px auto 0px", width: "600px", backgroundColor: "#283745", color: "white" }} type="submit">Add Product</Button>
+
             </FORM>
             <Table>
                 <Thead>
@@ -239,8 +257,11 @@ const AdminPanel = () => {
 const DIV = styled.div`
 
    display: grid;
-   grid-template-columns:repeat(2,1fr);
+   grid-template-columns:repeat(2,1fr);  
    gap: 20px;
+   margin: auto;
+
+  
    
 `
 

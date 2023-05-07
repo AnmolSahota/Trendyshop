@@ -31,7 +31,7 @@ const Dash = () => {
       <Heading textAlign={"center"} as="h1" mb="6">
         Dashboard
       </Heading>
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing="6">
+      <SimpleGrid textAlign={"center"} columns={{ base: 1, sm: 2, md: 3 }} spacing="6">
         <Stat>
           <StatLabel>Total Users</StatLabel>
           <StatNumber>{userdata.length}</StatNumber>
@@ -48,20 +48,20 @@ const Dash = () => {
           <Text fontSize="sm">+10% from last week</Text>
         </Stat>
       </SimpleGrid>
-      <Flex mt="6" flexDirection={{ base: "column", md: "row" }}>
+      <Flex textAlign={"center"} mt="6" flexDirection={{ base: "column", md: "row" }}>
         <Box flex="1" bg="white" p="6" borderRadius="md" boxShadow="md">
           <Heading as="h2" size="md" mb="6">
             Order History
           </Heading>
           <SimpleGrid columns={1} spacing={4}>
-            <Box bg="#FF6F61" p="4" borderRadius="md">
+            <Box bg="#283745" p="4" borderRadius="md">
               <Text  color={"white"} fontWeight="bold">Order #12345</Text>
               <Text  color={"white"} fontSize="sm">Lorem ipsum dolor sit amet</Text>
               <Text  color={"white"} fontSize="sm" fontWeight="bold">
                 $1,000
               </Text>
             </Box>
-            <Box bg="gray.100" p="4" borderRadius="md">
+            <Box bg="#283745" color="white" p="4" borderRadius="md">
               <Text fontWeight="bold">Order #23456</Text>
               <Text fontSize="sm">Lorem ipsum dolor sit amet</Text>
               <Text fontSize="sm" fontWeight="bold">

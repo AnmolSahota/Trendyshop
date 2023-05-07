@@ -21,7 +21,7 @@ import gmail from '../images/gmail.png'
 import instagram from '../images/instagram.png'
 import linkdin from '../images/linkedin.png'
 import mypic from '../images/mypic.png'
-
+import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import { AdminAuthSuccess } from '../../Redux/AdminAuth/action';
@@ -49,18 +49,29 @@ const avatars = [
 ];
 
 export default function JoinOurTeam() {
-
+  const toast = useToast();
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
   const nav = useNavigate()
   const dispatch=useDispatch()
   const handlesubmit=()=>{
     if(email=="admin"&&password=="admin"){
-      alert("login Successfully")
+      toast({
+        title: "Congrulations",
+        description: "You are logged in Successfully!!",
+        status: "success",
+        duration: 1000,
+        isClosable: true,
+      })
       nav('/dashboard')
       dispatch(AdminAuthSuccess())
     }else{
-      alert("login Failed")
+      toast({
+        title: `Wrong Credential`,
+        status: "error",
+        isClosable: true,
+      })
+
     }
   }
  
@@ -77,14 +88,8 @@ export default function JoinOurTeam() {
           <Heading
             lineHeight={1.1}
             fontSize={{ base: '3xl', sm: '4xl', md: '5xl', lg: '6xl' }}>
-            MedZ{' '}
-            <Text
-              as={'span'}
-              bgGradient="linear(#FF6F61, #FF6F61,#FF6F61)"
-              bgClip="text">
-              &
-            </Text>{' '}
-            +
+            TrendyShop{' '}
+            
           </Heading>
           <Stack direction={'row'} spacing={4} align={'center'}>
             <AvatarGroup>
@@ -100,7 +105,7 @@ export default function JoinOurTeam() {
                   height: 'full',
                   rounded: 'full',
                   transform: 'scale(1.125)',
-                  bgGradient: 'linear(#FF6F61, #FF6F61,#FF6F61)',
+                  bgGradient: 'linear(#283745, #3f5d79,#3f5d79)',
                   position: 'absolute',
                   zIndex: -1,
                   top: 0,
@@ -119,7 +124,7 @@ export default function JoinOurTeam() {
                   height: 'full',
                   rounded: 'full',
                   transform: 'scale(1.125)',
-                  bgGradient: 'linear(#FF6F61, #FF6F61,#FF6F61)',
+                  bgGradient: 'linear(#283745,#3f5d79,#3f5d79)',
                   position: 'absolute',
                   zIndex: -1,
                   top: 0,
@@ -138,7 +143,7 @@ export default function JoinOurTeam() {
                   height: 'full',
                   rounded: 'full',
                   transform: 'scale(1.125)',
-                  bgGradient: 'linear(#FF6F61, #FF6F61,#FF6F61)',
+                  bgGradient: 'linear(#283745,#3f5d79,#3f5d79)',
                   position: 'absolute',
                   zIndex: -1,
                   top: 0,
@@ -168,7 +173,7 @@ export default function JoinOurTeam() {
                 height: 'full',
                 rounded: 'full',
                 transform: 'scale(1.125)',
-                bgGradient: 'linear(#283745, #FF6F61,#FF6F61)',
+                bgGradient: 'linear(#283745,#3f5d79,#3f5d79)',
                 position: 'absolute',
                 zIndex: -1,
                 top: 0,
@@ -186,13 +191,13 @@ export default function JoinOurTeam() {
           maxW={{ lg: 'lg' }}>
           <Stack spacing={4}>
             <Heading
-              color={'gray.800'}
+              color={'#283745'}
               lineHeight={1.1}
               fontSize={{ base: '2xl', sm: '3xl', md: '4xl' }}>
               Login
               <Text
                 as={'span'}
-                bgGradient="linear(#FF6F61, #FF6F61,#FF6F61)"
+                bgGradient="linear(#283745,#3f5d79,#3f5d79)"
                 bgClip="text">
                 here
               </Text>
@@ -215,6 +220,7 @@ export default function JoinOurTeam() {
               <Input
                 value={password}
                 onChange={(e)=>setpassword(e.target.value)}
+                type='password'
                 placeholder="password"
                 bg={'gray.100'}
                 border={0}
@@ -229,10 +235,10 @@ export default function JoinOurTeam() {
               fontFamily={'heading'}
               mt={8}
               w={'full'}
-              bgGradient="linear(#FF6F61, #FF6F61,#FF6F61)"
+              bgGradient="linear(#283745, #3f5d79,#3f5d79)"
               color={'white'}
               _hover={{
-                bgGradient: 'linear(#FF6F61, #e44839,#e65547)',
+                bgGradient: 'linear(#283745, #3f5d79,#3f5d79)',
                 boxShadow: 'xl',
               }}>
               Submit
@@ -273,13 +279,13 @@ export const Blur = (props) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
-      <circle cx="71" cy="61" r="111" fill="#FF6F61" />
-      <circle cx="244" cy="106" r="139" fill="#FF6F61" />
-      <circle cy="291" r="139" fill="#FF6F61" />
-      <circle cx="80.5" cy="189.5" r="101.5" fill="#FF6F61" />
-      <circle cx="196.5" cy="317.5" r="101.5" fill="#FF6F61" />
-      <circle cx="70.5" cy="458.5" r="101.5" fill="#f75446" />
-      <circle cx="426.5" cy="-0.5" r="101.5" fill="#f64636" />
+      <circle cx="71" cy="61" r="111" fill="#283745" />
+      <circle cx="244" cy="106" r="139" fill="#27333e" />
+      <circle cy="291" r="139" fill="#4c5b68" />
+      <circle cx="80.5" cy="189.5" r="101.5" fill="#4c5b68" />
+      <circle cx="196.5" cy="317.5" r="101.5" fill="##4c5b68" />
+      <circle cx="70.5" cy="458.5" r="101.5" fill="#4c5b68" />
+      <circle cx="426.5" cy="-0.5" r="101.5" fill="#4c5b68" />
     </Icon>
   );
 };

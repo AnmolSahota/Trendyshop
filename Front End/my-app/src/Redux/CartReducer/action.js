@@ -117,6 +117,24 @@ export let deleteCartData = (id, dispatch) => {
     });
 };
 
+///delete all cart Data
+export let deleteAllCart = () => {
+  let token = localStorage.getItem("Token");
+  axios
+    .delete("https://dizzy-yak-sunglasses.cyclic.app/cartproduct", {
+      headers: {
+        "Content-Type": "application/json",
+        token: `Bearer ${token}`,
+      },
+    })
+    .then((res) => {
+      // console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export let updateCartData = async (id, quan, dispatch) => {
   let token = localStorage.getItem("Token");
   let obj = {
@@ -210,3 +228,87 @@ export let handleAddActionfour = (data, quan, dispatch) => {
       console.log(err);
     });
 };
+
+//for adress section
+export let postAddress = (obj) => {
+  let token = localStorage.getItem("Token");
+  axios
+    .post("https://dizzy-yak-sunglasses.cyclic.app/address", obj, {
+      headers: {
+        "Content-Type": "application/json",
+        token: `Bearer ${token}`,
+      },
+    })
+    .then((res) => {
+      // console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export let getAdress = async () => {
+  let token = localStorage.getItem("Token");
+  let res = await axios.get("https://dizzy-yak-sunglasses.cyclic.app/address", {
+    headers: {
+      "Content-Type": "application/json",
+      token: `Bearer ${token}`,
+    },
+  });
+  return res;
+};
+
+export let deleteAdress = async (id) => {
+  let token = localStorage.getItem("Token");
+  let res = await axios.delete(
+    `https://dizzy-yak-sunglasses.cyclic.app/address/${id}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        token: `Bearer ${token}`,
+      },
+    }
+  );
+  return res;
+};
+
+export let orderPost = (data) => {
+  let token = localStorage.getItem("Token");
+  let arr = data.map((el) => {
+    let hour = new Date();
+    let str = "";
+    str += hour;
+    el.time = str;
+    return el;
+  });
+  console.log(arr);
+  axios
+    .post("https://dizzy-yak-sunglasses.cyclic.app/order", arr, {
+      headers: {
+        "Content-Type": "application/json",
+        token: `Bearer ${token}`,
+      },
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+// [
+//   {
+//     brand: "BeatO Curv",
+//     category: "test-strip",
+//     desc: "Contour TS Blood Glucose Test Strip can be used with the Bayer Contour plus blood glucose monitoring system for the quantitative measurement of glucose (sugar) in fresh capillary blood samples drawn from the fingertips.",
+//     images:
+//       "https://onemg.gumlet.io/l_watermark_346,w_120,h_120/a_ignore,w_120,h_120,c_fit,q_auto,f_auto/duj5lyzyhhiqbaperf7h.jpg",
+//     price: 1164,
+//     quantity: 1,
+//     rating: "4.4",
+//     time: "Sun May 07 2023 21:11:24 GMT+0530 (India Standard Time)",
+//     title: "Contour TS Blood Glucose",
+//     userId: "6456296ce2fc1e032f5d3f38",
+//     _id: "6457c4154374ace64b35119f",
+//   },
+// ]
