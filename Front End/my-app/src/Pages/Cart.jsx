@@ -14,35 +14,49 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Cart.module.css";
 import Toster from "../Components/Toster";
-import arr, { fourdata } from "../Redux/CartReducer/action";
-
+import arr, {
+  deleteCartData,
+  fourdata,
+  getCartData,
+  gettotalAMT,
+  handleAddAction,
+  handleAddActionfour,
+  saveLater,
+  updateCartData,
+} from "../Redux/CartReducer/action";
 import SaveLater from "../Components/SaveLater";
 import CartLoading from "../Components/CartLoading";
 function Cart() {
   const [data, setdata] = useState([]);
   const [block, setblock] = useState(false);
   const [selectcheck, setselect] = useState(true);
-  const [temp, settemp] = useState([]);
   let { cartData, total, isLoading } = useSelector(
     (state) => state.cartReducer
   );
-  console.log(isLoading);
   let dispatch = useDispatch();
-  let handleSelect = () => {
-    console.log(selectcheck);
-    setselect(!selectcheck);
+
+  let handlequantity = (id, value) => {
+    updateCartData(id, value, dispatch).finally(() =>
+      gettotalAMT(cartData, dispatch)
+    );
   };
 
-  let handlequantity = (id, value) => {};
+  let handleDelete = (id) => {
+    deleteCartData(id, dispatch);
+  };
 
-  let handleDelete = (id) => {};
-
-  let handleLater = (id, el) => {};
-  let handleAdd = (el) => {};
+  let handleLater = (el) => {
+    saveLater(el, dispatch);
+    gettotalAMT(cartData, dispatch);
+  };
+  let handleAdd = (el) => {
+    handleAddActionfour(el, 1, dispatch);
+  };
 
   useEffect(() => {
-    settemp(arr);
     setdata(fourdata);
+    getCartData(dispatch, cartData);
+    gettotalAMT(cartData, dispatch);
   }, []);
 
   if (isLoading) {
@@ -62,15 +76,13 @@ function Cart() {
           boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
         >
           <Text className={styles.shopCart}> Shopping Cart</Text>
-          <span className={styles.deselect} onClick={handleSelect}>
-            Deselect all items
-          </span>
+          <span className={styles.deselect}>Deselect all items</span>
           <p className={styles.right}>Price</p>
           <hr />
           <br />
           <br />
-          {temp &&
-            temp.map((el, i) => {
+          {cartData &&
+            cartData.map((el, i) => {
               return (
                 <Grid
                   gridTemplateColumns={{ sm: "repeat(1,1fr)", md: "20% 1fr" }}
@@ -83,7 +95,7 @@ function Cart() {
                     <Text display={"flex"} justifyContent={{ md: "center" }}>
                       <Text>
                         <img
-                          src={el.images[0]}
+                          src={el.images}
                           width={"120px"}
                           height={"120px"}
                         ></img>
@@ -92,7 +104,7 @@ function Cart() {
                   </GridItem>
                   <GridItem position="relative">
                     <Text className={styles.title} display="inline">
-                      {el.description}
+                      {el.title}
                     </Text>
                     <Text
                       position={"absolute"}
@@ -101,7 +113,7 @@ function Cart() {
                       display="inline"
                       className={styles.priceCart}
                     >
-                      ₹{el.price}
+                      ₹{el.price * el.quantity}
                     </Text>
                     <Text className={styles.cartDays}>
                       Usually dispatched in{" "}
@@ -161,11 +173,9 @@ function Cart() {
                         w={"90px"}
                         size={"sm"}
                         className={styles.cartSelect}
-                        onChange={(e) => handlequantity(el.id, e.target.value)}
+                        onChange={(e) => handlequantity(el._id, e.target.value)}
                       >
-                        <option value={el.quantity}>
-                          Qty: {el.quantity || 1}
-                        </option>
+                        <option value={el.quantity}>{el.quantity || 1}</option>
                         <option value={1}> 1</option>
                         <option value={2}> 2</option>
                         <option value={3}> 3</option>
@@ -177,7 +187,7 @@ function Cart() {
                       |
                       <Text
                         className={`${styles.cartGreen} ${styles.cartUnderLine}`}
-                        onClick={() => handleDelete(el.id)}
+                        onClick={() => handleDelete(el._id)}
                         fontSize={"14px"}
                       >
                         Delete
@@ -186,7 +196,7 @@ function Cart() {
                       <Text
                         className={`${styles.cartGreen} ${styles.cartUnderLine}`}
                         fontSize={"14px"}
-                        onClick={() => handleLater(el.id, el)}
+                        onClick={() => handleLater(el)}
                       >
                         Save For Later
                       </Text>
@@ -285,7 +295,7 @@ function Cart() {
                     >
                       <GridItem>
                         <img
-                          src={el.images[0]}
+                          src={el.images}
                           width={"200px"}
                           height={"100px"}
                           key={el.id}
