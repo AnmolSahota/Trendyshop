@@ -18,7 +18,12 @@ function CartLoading() {
         <Box>
           <Grid>
             {new Array(4).fill(0).map((ele) => (
-              <Box key={Math.random()} padding="30" boxShadow="lg" bg="white">
+              <Box
+                key={Math.random()}
+                padding="30"
+                //  boxShadow="lg"
+                bg="white"
+              >
                 <Skeleton height="15vh" />
               </Box>
             ))}
@@ -26,7 +31,7 @@ function CartLoading() {
         </Box>
         <Box
           padding="30"
-          boxShadow="lg"
+          // boxShadow="lg"
           bg="white"
           h={"100vh"}
           display={{ base: "none", md: "block" }}

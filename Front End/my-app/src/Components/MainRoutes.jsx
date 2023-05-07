@@ -7,7 +7,17 @@ import Payment from "../Pages/Payment";
 import Products from "../Pages/Products";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import CartLoading from "./CartLoading";
+import SingleProduct from "../Pages/SingleProduct";
+import AdminLogin from "../Admin/Pages/AdminLogin";
+import Dashboard from "../Admin/Pages/Dashboard";
+import Userdetails from "../Admin/Pages/Userdetails";
+import Editproudct from "../Admin/Pages/Editproudct";
+import Allproduct from "../Admin/Pages/Allproduct";
+import Singleprodcutedit from "../Admin/Pages/Singleprodcutedit";
+import AdminPrivateroute from "../Admin/Privateroute/AdminPrivateroute";
+
+
+
 function MainRoutes() {
   return (
     <Routes>
@@ -15,10 +25,10 @@ function MainRoutes() {
       <Route path="/admin" element={<Admin />}></Route>
       <Route path="/payment" element={<Payment />}></Route>
       <Route path="/product" element={<Products />}></Route>
-      <Route path="/singleProduct/:category/:id" element={<Products />}></Route>
+      <Route path="/singleProduct/:category/:id" element={<SingleProduct />}></Route>
       <Route path="/cart" element={<Cart />}></Route>
-      <Route path="/login" element={<Login />}></Route>
-      <Route path="/register" element={<Register />}></Route>
+      <Route path="/signin" element={<Login />}></Route>
+      <Route path="/signup" element={<Register />}></Route>
       <Route
         path="*"
         element={
@@ -27,6 +37,17 @@ function MainRoutes() {
           </h1>
         }
       ></Route>
+
+       {/* Admin */}
+      
+        <Route path='/adminlogin' element={<AdminLogin />}/> 
+        <Route path='/dashboard' element={ <AdminPrivateroute> <Dashboard /></AdminPrivateroute>}/> 
+        <Route path='/dashboard/userdetails' element={<AdminPrivateroute> <Userdetails /></AdminPrivateroute>}/>
+        <Route path='/dashboard/editproduct' element={<AdminPrivateroute> <Editproudct /></AdminPrivateroute>}/>
+        <Route path='/dashboard/allproducts' element={<AdminPrivateroute> <Allproduct /></AdminPrivateroute>}/>
+        <Route path='/dashboard/singleproductedit/:id' element={<AdminPrivateroute><Singleprodcutedit /></AdminPrivateroute>} />
+         
+      {/*  */}
     </Routes>
   );
 }

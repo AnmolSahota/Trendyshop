@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Loginuser from '../Components/Loginuser'
 function Login() {
   return (
-    <div>Login</div>
+    <div>
+      <Loginuser />
+    </div>
   )
 }
 
