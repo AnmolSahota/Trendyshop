@@ -1,0 +1,11 @@
+.imageContainer {
+  /* border: 1px solid; */
+  width: 98.7%;
+  height: auto;
+  margin: auto;
+  margin-top: 20px;
+}
+.image {
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
