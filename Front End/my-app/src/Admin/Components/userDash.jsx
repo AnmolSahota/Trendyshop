@@ -3,7 +3,7 @@ import verify from '../images/verify.gif'
 import User from '../images/user.gif'
 const UsersDashboard = ({ usersData }) => {
   return (
-    <Box p="6">
+    <Box textAlign={"center"} p="6">
       <Heading as="h1" mb="6">
         Users Dashboard
       </Heading>
