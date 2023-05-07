@@ -1,53 +1,94 @@
-.mainDiv{
-    /* border: 1px solid; */
-    height: auto;
-    width: 100%;
-    margin: auto;
-    position: relative;
-    /* margin-bottom: 20px; */
+.mainDiv {
+  /* border: 1px solid; */
+  height: auto;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  /* margin-bottom: 20px; */
 }
-.name{
-    position: absolute;
-    top: 70%;
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
-    /* border: 1px solid; */
-    text-align: center;
+.name {
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  /* border: 1px solid; */
+  text-align: center;
 }
-.leftButton{
-    background-color: rgba(255, 255, 255, 0.307);
-    border: 1px solid gray;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    position: absolute;
-    top: 45%;
-    left: 30px;
-    box-shadow: 0px 0px 10px 1px black;
+.leftButton {
+  background-color: rgba(255, 255, 255, 0.307);
+  border: 1px solid gray;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: 30px;
+  box-shadow: 0px 0px 10px 1px black;
 }
-.leftButton:hover{
-    background-color: white;
+.leftButton:hover {
+  background-color: white;
 }
-.rightButton:hover{
-    background-color: white;
+.rightButton:hover {
+  background-color: white;
 }
-.rightButton{
-    background-color: rgba(255, 255, 255, 0.364);
-    border: 1px solid gray;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    top: 45%;
-    right: 30px;
-    position: absolute;
-    box-shadow: 0px 0px 10px 1px black;
+.rightButton {
+  background-color: rgba(255, 255, 255, 0.364);
+  border: 1px solid gray;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: 45%;
+  right: 30px;
+  position: absolute;
+  box-shadow: 0px 0px 10px 1px black;
 }
-.head{
-    font-size: 24px;
-    font-weight: 700;
+.head {
+  font-size: 24px;
+  font-weight: 700;
 }
-.line{
-    margin-bottom: 5px;
-    color: gray;
+.line {
+  margin-bottom: 5px;
+  color: gray;
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .name{
+      position: absolute;
+      top: 63%;
+      width: 100%;
+      font-weight: bold;
+      font-size: 13px;
+      /* border: 1px solid; */
+      text-align: center; 
+  }
+  .leftButton{
+      width: 45px;
+      height: 45px;
+  }
+  .rightButton{
+      width: 45px;
+      height: 45px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .name{
+      position: absolute;
+      top: 60%;
+      width: 100%;
+      font-weight: bold;
+      font-size: 10px;
+      /* border: 1px solid; */
+      text-align: center; 
+  }
+  .leftButton{
+      width: 25px;
+      height: 25px;
+  }
+  .rightButton{
+      width: 25px;
+      height: 25px;
+  }
 }

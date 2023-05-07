@@ -1,0 +1,86 @@
+.mainDiv{
+    width: 98.7%;
+    margin: auto;
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    margin-top: 20px;
+}
+.each{
+    width: 49.5%;
+    border: 1px solid rgb(220,220,220);
+    height: 450px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.img{
+    height: 80%;
+}
+.cap{
+    margin-left: 20px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+.cap2{
+    color: rgb(243, 53, 84);
+    margin-left: 20px;
+}
+.productCarousal{
+    position: relative;
+    overflow: hidden;
+    /* border: 1px solid; */
+    width: 98.6%;
+    margin: auto;
+    height:320px ;
+    margin-top: 20px;
+}
+.preBtn{
+    background-color: rgba(255, 255, 255, 0.285);
+    border: 1px solid lightgray;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 45%;
+    left: 30px;
+    box-shadow: 0px 0px 10px 1px black;
+    z-index: 10;
+}
+.preBtn:hover{
+    background-color: white;
+}
+.nextBtn:hover{
+    background-color: white;
+}
+.nextBtn{
+    background-color: rgba(255, 255, 255, 0.288);
+    border: 1px solid lightgray;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: 45%;
+    right: 30px;
+    position: absolute;
+    box-shadow: 0px 0px 10px 1px black;
+    z-index: 10;
+}
+@media screen and (max-width: 500px) {
+    .each{
+        height: 200px;
+    }
+    .cap{
+        font-size: 8px;
+        margin-top: 2px;
+    }
+    .cap2{
+        font-size: 8px;
+    }
+    .productCarousal{
+        height:220px ;
+    }
+    .nextBtn,.preBtn{
+        height: 25px;
+        width: 25px;
+    }
+}

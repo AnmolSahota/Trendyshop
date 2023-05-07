@@ -32,8 +32,6 @@ import { useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import img from "../Assets/trendy1.jpeg"
 import NavDrawer from "./NavDrawer";
-// import { useDispatch, useSelector } from "react-redux";
-// import { getCartProducts } from "../../Redux/Products_Reducer/action";
 
 const NAV_ITEMS = [
   {
@@ -66,15 +64,6 @@ const NAV_ITEMS = [
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
   const toast = useToast();
-  // const dispatch = useDispatch();
-
-  // const {cart} = useSelector((store) => {
-  //   return store.ProReducer;
-  // });
-
-  // useEffect(() => {
-  //   dispatch(getCartProducts());
-  // }, []);
 
   const logoutSuccess = () => {
     toast({
@@ -95,7 +84,7 @@ export default function Navbar() {
         zIndex={"1000"}
       >
         <Flex
-          bg={"black"}
+          bg={"rgb(19,25,33)"}
           color={useColorModeValue("gray.600", "white")}
           minH={"70px"}
           py={{ base: 2 }}
@@ -131,7 +120,6 @@ export default function Navbar() {
                   alt="img"
                   width={"100px"}
                 />
-                {/* <Flex className={styles.logoname}>UNICORN</Flex> */}
               </Link>
             </Text>
 
@@ -1730,10 +1718,11 @@ const DesktopNav = () => {
         onChange={(e) => setQuery(e.target.value)}
         border={"1px solid white"}
         padding={"5px"}
-        fontSize={"16px"}
+        fontSize={"14px"}
         height={"25px"}
         color={"white"}
         className={styles.searchInput}
+        placeholder="Search on TrendyShop"
       />
       {query.length > 0 && (
         <div

@@ -42,3 +42,12 @@
     box-shadow: 0px 0px 10px 1px black;
     z-index: 10;
 }
+@media screen and (max-width: 500px) {
+    .productCarousal{
+        height: 200px;
+    }
+    .preBtn,.nextBtn{
+        width: 25px;
+        height: 25px;
+    }
+}
