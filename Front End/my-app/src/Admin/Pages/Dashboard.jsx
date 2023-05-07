@@ -40,6 +40,7 @@ import Medz from '../images/MedZ+.png'
 import Theme from '../Components/Theme';
 import { Link as Routelink } from 'react-router-dom'
 import styled from '@emotion/styled';
+import trendy from '../../images/Trendyshop.png'
 import Dash from '../Components/Dash'
 const LinkItems = [
   { name: 'Dashboard', icon: FiHome, path: "/dashboard" },
@@ -93,7 +94,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          <img style={{ marginTop: "30px" }} width="500px" src={Medz} alt="" />
+          <img style={{ marginTop: "30px" }} width="500px" src={trendy} alt="" />
         </Text>
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
@@ -101,7 +102,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
 
 
         <NavItem _hover={{
-          bg: "#FF6F61",
+          bg: "#283745",
           color: "white"
         }} key={link.name} icon={link.icon}>
           <Routelink to={link.path}>
@@ -172,7 +173,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
         fontSize="2xl"
         fontFamily="monospace"
         fontWeight="bold">
-        <img width="200px" src={Medz} alt="" />
+        <img width="200px" src={trendy} alt="" />
       </Text>
 
       <HStack spacing={{ base: '0', md: '6' }}>
