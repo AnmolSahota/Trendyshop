@@ -5,11 +5,12 @@ import Navbar2 from '../Components/Navbar/Navbar2'
 function Home() {
   return (
     <div>
-      <Navbar />
-      <Navbar2 />
-      Home
-      <Footer />
-      <BackToTop />
+      {/* <Navbar />
+      <Navbar2 /> */}
+
+  
+      {/* <Footer />
+      <BackToTop /> */}
     </div>
   )
 }
