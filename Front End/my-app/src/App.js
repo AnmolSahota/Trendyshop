@@ -9,11 +9,11 @@ import BackToTop from "./Components/BackToTop/BackToTop";
 function App() {
   return (
     <div>
-      {/* <Navbar/>
-      <Navbar2/> */}
+      <Navbar/>
+      <Navbar2/>
       <MainRoutes />
-      {/* <Footer/>
-      <BackToTop/> */}
+      <Footer/>
+      <BackToTop/>
     </div>
   );
 }
