@@ -7,8 +7,17 @@ import Payment from "../Pages/Payment";
 import Products from "../Pages/Products";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
-import CartLoading from "./CartLoading";
 import SingleProduct from "../Pages/SingleProduct";
+import AdminLogin from "../Admin/Pages/AdminLogin";
+import Dashboard from "../Admin/Pages/Dashboard";
+import Userdetails from "../Admin/Pages/Userdetails";
+import Editproudct from "../Admin/Pages/Editproudct";
+import Allproduct from "../Admin/Pages/Allproduct";
+import Singleprodcutedit from "../Admin/Pages/Singleprodcutedit";
+import AdminPrivateroute from "../Admin/Privateroute/AdminPrivateroute";
+
+
+
 function MainRoutes() {
   return (
     <Routes>
@@ -28,6 +37,17 @@ function MainRoutes() {
           </h1>
         }
       ></Route>
+
+       {/* Admin */}
+      
+        <Route path='/adminlogin' element={<AdminLogin />}/> 
+        <Route path='/dashboard' element={ <AdminPrivateroute> <Dashboard /></AdminPrivateroute>}/> 
+        <Route path='/dashboard/userdetails' element={<AdminPrivateroute> <Userdetails /></AdminPrivateroute>}/>
+        <Route path='/dashboard/editproduct' element={<AdminPrivateroute> <Editproudct /></AdminPrivateroute>}/>
+        <Route path='/dashboard/allproducts' element={<AdminPrivateroute> <Allproduct /></AdminPrivateroute>}/>
+        <Route path='/dashboard/singleproductedit/:id' element={<AdminPrivateroute><Singleprodcutedit /></AdminPrivateroute>} />
+         
+      {/*  */}
     </Routes>
   );
 }

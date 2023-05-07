@@ -1,0 +1,2 @@
+export const ADMIN_AUTH_SUCCESS = "ADMIN_AUTH"
+export const ADMIN_AUTH_FAIL="ADMIN_AUTH_FAIL"
