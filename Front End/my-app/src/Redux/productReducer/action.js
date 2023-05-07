@@ -1,29 +1,15 @@
-import { PRODUCTREQUEST, PRODUCTSUCCESS } from "./actionType"
+import axios from "axios"
+import { PRODUCTFAILURE, PRODUCTREQUEST, PRODUCTSUCCESS } from "./actionType"
 
-const initialState = {
-    isLoading:false,
-    isError:false,
-    products:[]
-}
 
-export const reducer = (state=initialState,{type,payload})
-{
-    switch(type)
-    {
-        case PRODUCTREQUEST : {
-            return {...state,isLoading:true}
-        }
+export const getVitamins = (dispatch)=>{
+    dispatch(PRODUCTREQUEST)
+    axios.get("https://good-pear-cheetah-tutu.cyclic.app/vitamin").then((res)=>{
+        dispatch({type:PRODUCTSUCCESS,payload:res.data})
+        console.log(res)
+    }).catch((err)=>{
+        dispatch(PRODUCTFAILURE)
+        console.log(err)
 
-        case PRODUCTSUCCESS:{
-            return {...state,isLoading:false,products:payload}
-        }
-
-        case PRODUCTFAILURE:{
-            return {...state,isLoading:false,isError:true}
-        }
-
-        default:{
-            return state
-        }
-    }
+    })
 }
