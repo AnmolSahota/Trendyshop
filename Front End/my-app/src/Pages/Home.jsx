@@ -1,8 +1,16 @@
 import React from 'react'
+import Navbar from '../Components/Navbar/Navbar'
+import Navbar2 from '../Components/Navbar/Navbar2'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Navbar />
+      <Navbar2 />
+      Home
+      <Footer />
+      <BackToTop />
+    </div>
   )
 }
 
