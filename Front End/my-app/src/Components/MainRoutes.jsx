@@ -15,6 +15,7 @@ import Editproudct from "../Admin/Pages/Editproudct";
 import Allproduct from "../Admin/Pages/Allproduct";
 import Singleprodcutedit from "../Admin/Pages/Singleprodcutedit";
 import AdminPrivateroute from "../Admin/Privateroute/AdminPrivateroute";
+import Thankyou from "../Pages/ThankYou";
 
 
 
@@ -46,6 +47,7 @@ function MainRoutes() {
         <Route path='/dashboard/editproduct' element={<AdminPrivateroute> <Editproudct /></AdminPrivateroute>}/>
         <Route path='/dashboard/allproducts' element={<AdminPrivateroute> <Allproduct /></AdminPrivateroute>}/>
         <Route path='/dashboard/singleproductedit/:id' element={<AdminPrivateroute><Singleprodcutedit /></AdminPrivateroute>} />
+        <Route path='/Thankyou' element={<Thankyou />}/> 
          
       {/*  */}
     </Routes>

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getVitamins } from "../Redux/productReducer/action";
@@ -143,6 +144,7 @@ function Products() {
       <Polo />
     </>
   );
+
 }
 
 export default Products;

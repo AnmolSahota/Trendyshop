@@ -1,4 +1,6 @@
+
 import React, { useEffect,useState } from 'react'
+
 import {
     Accordion,
     AccordionItem,
@@ -11,6 +13,13 @@ import {
   import {AddIcon,MinusIcon } from '@chakra-ui/icons'
 
   import { Checkbox, CheckboxGroup } from '@chakra-ui/react'
+
+
+
+const Sidebar = () => {
+  return (
+    <>
+   <Box w = "80%"> 
 import { useSearchParams } from 'react-router-dom'
 
 
@@ -57,19 +66,23 @@ const Sidebar = () => {
   return (
     <>
    <Box w = "100%"> 
+
     <Accordion allowMultiple>
   <AccordionItem>
     <h2>
       <AccordionButton>
         <Box as="span" flex='1' textAlign='left' w={"100%"}>
+
           Sort By Price
         </Box>
         <AccordionIcon />
       </AccordionButton>
     </h2>
+
     <AccordionPanel pb={4} w={"30%"}>
       <Checkbox name = "asc" onChange={(e)=> order=="asc"?setOrder(""):setOrder(e.target.name)} isChecked={order=="asc"?true:false} >Ascending</Checkbox>
       <Checkbox name = "desc" onChange={(e)=> order=="desc"?setOrder(""):setOrder(e.target.name)} isChecked={order=="desc"?true:false} >Descending</Checkbox>
+
     </AccordionPanel>
   </AccordionItem>
   <AccordionItem>
@@ -77,7 +90,9 @@ const Sidebar = () => {
       <>
         <h2>
           <AccordionButton>
+
             <Box as="span" flex='1' textAlign='left' w={"100%"}>
+
               Filter By
             </Box>
             {isExpanded ? (
@@ -87,10 +102,12 @@ const Sidebar = () => {
             )}
           </AccordionButton>
         </h2>
+<Checkbox>Vitamin C</Checkbox>
         <AccordionPanel pb={4} w = {"30%"}>
           <Checkbox name = {"Vitamin A"} onChange={handleChange} isChecked={category.includes("Vitamin A")?true:false} >Vitamin A</Checkbox>
           <Checkbox name = {"Vitamin B"} onChange={handleChange} isChecked={category.includes("Vitamin B")?true:false} >Vitamin B</Checkbox>
           <Checkbox name = {"Vitamin C"} onChange={handleChange} isChecked={category.includes("Vitamin C")?true:false} >Vitamin C</Checkbox>
+
         </AccordionPanel>
       </>
     )}
