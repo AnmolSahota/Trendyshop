@@ -15,6 +15,8 @@ import { Navigate, useFetcher, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { patchdata } from "../../Redux/AdminCRUD/action";
 import { Vitamin } from "../../Redux/AdminAlldataReducer/action";
+import { useToast } from "@chakra-ui/react";
+
 const initialProductFormData = {
     title: '',
     price: 0,
@@ -35,6 +37,8 @@ const PatchForm = () => {
   const dispatch=useDispatch()
   const{id}=useParams()
  const naviagate=useNavigate()
+ const toast = useToast();
+
 
  
 
@@ -60,12 +64,22 @@ const PatchForm = () => {
     setProductFormData(filterdata[0])
   },[])
   if(flag){
-    return <Navigate to ="/dashboard/editproduct"/>
+    return <>
+    { toast({
+        title: "Congrulations",
+        description: "item Updated Successfully!!",
+        status: "success",
+        duration: 1000,
+        isClosable: true,
+      })}
+    <Navigate to ="/dashboard/editproduct"/>
+    </>
+    
   }
   
   return (
     <Stack m={"auto"} mt={"15px"} w={"80%"} >
-    <Text style={{ fontWeight: "bolder", fontSize: "35px" }}>Edit Product</Text>
+    <Text style={{ margin:"auto", fontWeight: "bolder", fontSize: "35px" }}>Edit Product</Text>
     <FORM onSubmit={handleSubmit}>
             <FormControl id="title">
                 <FormLabel> Name</FormLabel>
@@ -154,7 +168,7 @@ const PatchForm = () => {
                 />
             </FormControl>
         
-        <Button style={{ marginTop: "20px", width: "300px", backgroundColor: "#FF6F61", color: "white" }} type="submit">Edit Product</Button>
+        <Button style={{ display:"block", marginTop: "20px", width: "600px", backgroundColor: "#283745", color: "white" }} type="submit">Edit Product</Button>
     </FORM>
     </Stack>
   );
@@ -165,6 +179,11 @@ export default PatchForm;
 const FORM = styled.form`
 
 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-padding:25px
+padding:25px;
+text-align:center;
+
+button{
+    margin: auto;
+}
     
 `
