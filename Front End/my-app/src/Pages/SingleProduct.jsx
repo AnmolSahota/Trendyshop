@@ -8,7 +8,10 @@ import Description from "../Components/Description";
 import NocostEmiDrawer from "../Components/NocostEmiDrawer";
 import PartnerOfferDrawer from "../Components/PartnerOfferDrawer";
 import Toster from "../Components/Toster";
-import { getSingleProductAction } from "../Redux/CartReducer/action";
+import {
+  getSingleProductAction,
+  handleAddAction,
+} from "../Redux/CartReducer/action";
 import styles from "../Styles/Cart.module.css";
 import SingleProductLoading from "../Components/SingleProductLoading";
 
@@ -28,10 +31,10 @@ const SingleProduct = () => {
     });
   }, []);
   let addSingleProduct = () => {
-    // dispatch(handleAddAction(data, quan));
+    handleAddAction(data, quan, dispatch);
   };
   let handleChangeSingle = (e) => {
-    // setquan(e.target.value);
+    setquan(e.target.value);
   };
 
   if (isLoading) {

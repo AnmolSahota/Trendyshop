@@ -1,0 +1,26 @@
+.eachDiv {
+  /* border: 1px solid black; */
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.eachDiv > div {
+  /* border: 1px solid */
+}
+
+.eachDiv > div > div {
+  /* border: 1px solid; */
+  margin: auto;
+  width: 95%;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.caption {
+  margin: auto;
+  width: 70%;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

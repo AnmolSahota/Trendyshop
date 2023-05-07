@@ -3,11 +3,31 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../Styles/Cart.module.css";
 import Polo from "./Polo";
+import {
+  gettotalAMT,
+  handleAddAction,
+  handleAddActionfour,
+  moveTocart,
+} from "../Redux/CartReducer/action";
 function SaveLater() {
-  let { savelater } = useSelector((state) => state.cartReducer);
+  let { savelater, cartData } = useSelector((state) => state.cartReducer);
   let dispatch = useDispatch();
-  let handleDeleteSave = (id) => {};
-  let handleMovecart = (el, id) => {};
+  let handleDeleteSave = (id) => {
+    let arr = savelater.filter((el) => {
+      if (el._id != id) {
+        return el;
+      }
+    });
+    localStorage.setItem("savelaterData", JSON.stringify(arr));
+    let data = JSON.parse(localStorage.getItem("savelaterData"));
+    dispatch({ type: "NEW_SAVE_DATA", payload: data });
+    gettotalAMT(cartData, dispatch);
+  };
+  let handleMovecart = (el, id) => {
+    moveTocart(el, id, dispatch);
+    handleAddActionfour(el, el.quantity, dispatch);
+    gettotalAMT(cartData, dispatch);
+  };
   return (
     <>
       <Box
@@ -31,14 +51,14 @@ function SaveLater() {
               return (
                 <GridItem border={"1px solid #E0E0E0"} p={"20px"}>
                   <Text height={"200px"} width={"200px"}>
-                    <Img src={el.image} height={"100%"} w={"100%"}></Img>
+                    <Img src={el.images} height={"100%"} w={"100%"}></Img>
                   </Text>
                   <Box>
                     <Text
                       className={`${styles.cartGreen} ${styles.cartUnderLine}`}
                       fontWeight={500}
                     >
-                      {el.description}
+                      {el.title}
                     </Text>
                     <Text className={styles.priceCart}>₹{el.price}</Text>
                     <Text className={styles.cartGreen} fontSize={"14px"}>
@@ -59,7 +79,7 @@ function SaveLater() {
                         fontWeight: "700",
                         marginBottom: "20px",
                       }}
-                      onClick={() => handleMovecart(el, el.id)}
+                      onClick={() => handleMovecart(el, el._id)}
                     >
                       Move to Cart
                     </button>
@@ -67,7 +87,7 @@ function SaveLater() {
                       className={`${styles.cartGreen} ${styles.cartUnderLine}`}
                       fontSize={"14px"}
                       color="#007185"
-                      onClick={() => handleDeleteSave(el.id)}
+                      onClick={() => handleDeleteSave(el._id)}
                     >
                       Delete
                     </Text>

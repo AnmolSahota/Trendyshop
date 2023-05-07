@@ -6,15 +6,19 @@ import {reducer as AdminAuth} from './AdminAuth/reducer'
 import {reducer as AdminAlldataReducer} from './AdminAlldataReducer/reducer'
 import {reducer as CRUDReducer} from './AdminCRUD/reducer'
 import{reducer as AdminUserData} from './AdminUserReducer/reducer'
+import { reducer as loginReducer } from "./LoginReducer/reducer";
 const rootReducer = combineReducers({
   cartReducer,
   singleReducer,
   AdminAuth,
   AdminAlldataReducer,
   AdminUserData,
-  CRUDReducer
-
+  CRUDReducer,
+  loginReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
+export const store = legacy_createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
