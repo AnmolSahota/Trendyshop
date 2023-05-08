@@ -112,7 +112,7 @@ function Polo() {
                   FREE Delivery over ₹499.
                 </Text>
                 <Text color={"#e47911"} fontSize={"14px"}>
-                  Fulfilled by Amazon.
+                  Fulfilled by Trendyshop.
                 </Text>
               </GridItem>
             );
