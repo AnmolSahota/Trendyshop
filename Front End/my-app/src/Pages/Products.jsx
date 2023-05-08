@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getVitamins } from "../Redux/productReducer/action";
@@ -27,43 +26,44 @@ function Products() {
   const initPage = searchParams.get("page");
   const [page, setPage] = useState(initPage || 1);
 
-  console.log(initPage);
+  // console.log(initPage);
   const handleChange = (payload) => {
     setPage((prev) => prev + payload);
     setSearchParams(page);
   };
 
-  const obj = {
-    params: {
-      category: searchParams.getAll("category"),
-      _sort: searchParams.get("order") && "price",
-      _order: searchParams.get("order"),
-      _page: page,
-      _limit: "15",
-    },
-  };
+  // const obj = {
+  //   params: {
+  //     category: searchParams.getAll("category"),
+  //     _sort: searchParams.get("_order") && "price",
+  //     _order: searchParams.get("_order"),
+  //     _page: page,
+  //     _limit: "15",
+  //   },
+  // };
 
-  console.log(store);
+  // console.log(store);
   useEffect(() => {
-    dispatch(getVitamins(obj));
+    // dispatch(getVitamins(obj));
   }, [location.search, page]);
 
   return (
     <>
       <Grid templateColumns="auto auto">
-        <Box w="150%" borderRight={"1px solid black"}>
+        <Box w="200%" borderRight={"1px solid #85859d"}>
           <Sidebar />
         </Box>
 
         <Box marginLeft={"15%"} width={"70%"}>
-          <Grid templateColumns="repeat(4, 1fr)"  
-          position="relative"
-          overflow="hidden"
-          zIndex={-1}
-          overflowX="hidden"
-          m={"auto"}
-          alignSelf={"center"}
-           >
+          <Grid
+            templateColumns="repeat(4, 1fr)"
+            position="relative"
+            overflow="hidden"
+            zIndex={-1}
+            overflowX="hidden"
+            m={"auto"}
+            alignSelf={"center"}
+          >
             {store.map((item) => {
               return (
                 <GridItem p={"30px"}>
@@ -75,51 +75,62 @@ function Products() {
                     m={"20px"}
                     overflow="hidden"
                     overflowX="hidden"
-                    
                   >
                     <Center>
-                      <Image src={item.images[0]} ></Image>
+                      <Image src={item.images[0]}></Image>
                     </Center>
-                    <Text noOfLines={1} pt={"2%"} fontWeight={500}
-                  fontSize={"14px"}>
+                    <Text
+                      noOfLines={1}
+                      pt={"2%"}
+                      fontWeight={500}
+                      fontSize={"14px"}
+                    >
                       {item.title}
                     </Text>
                     <Text
-                  color={"gray.500"}
-                  fontWeight={500}
-                  display="inline"
-                  marginRight={"10px"}
-                  fontSize={"14px"}
-
-                >
-                  {item.brand}
-                </Text>
-                <Text color={"teal"} display="inline">
-                  &#9733;&#9733;&#9733;&#9733;&#9734;
-                </Text>
-                    <Box pt={"10%"}> 
-                    <Flex gap="2%" justify={"space-between"}>
-                      <Text as={"s"} fontWeight={500}
-                  display="inline"
-                  marginRight={"10px"}
-                  fontSize={"14px"}>
-                        <i class="fa fa-rupee"></i>
-                        <p>MRP &#x20b9;{item.price}/- </p>{" "}
-                      </Text>
-                      <Text as={"mark"}  fontWeight={500}
-                  display="inline"
-                  marginRight={"10px"}
-                  fontSize={"14px"}>
-                        <p> Dicscount Price &#x20b9;{item.discountprice}/- </p>{" "}
-                      </Text>
-                    </Flex>
+                      color={"gray.500"}
+                      fontWeight={500}
+                      display="inline"
+                      marginRight={"10px"}
+                      fontSize={"14px"}
+                    >
+                      {item.brand}
+                    </Text>
+                    <Text color={"teal"} display="inline">
+                      &#9733;&#9733;&#9733;&#9733;&#9734;
+                    </Text>
+                    <Box pt={"10%"}>
+                      <Flex gap="2%" justify={"space-between"}>
+                        <Text
+                          as={"s"}
+                          fontWeight={500}
+                          display="inline"
+                          marginRight={"10px"}
+                          fontSize={"14px"}
+                        >
+                          <i class="fa fa-rupee"></i>
+                          <p>MRP &#x20b9;{item.price}/- </p>
+                        </Text>
+                        <Text
+                          as={"mark"}
+                          fontWeight={500}
+                          display="inline"
+                          marginRight={"10px"}
+                          fontSize={"14px"}
+                        >
+                          <p>
+                            {" "}
+                            Dicscount Price &#x20b9;{item.discountprice}/-{" "}
+                          </p>{" "}
+                        </Text>
+                      </Flex>
                     </Box>
                     <Text color={"gray.500"} fontSize={"14px"}>
-                  FREE Delivery over ₹499.
-                </Text>
-                <Text color={"#e47911"} fontSize={"14px"}>
-                  Fulfilled by Amazon.
-                </Text>
+                      FREE Delivery over ₹499.
+                    </Text>
+                    <Text color={"#e47911"} fontSize={"14px"}>
+                      Fulfilled by Amazon.
+                    </Text>
                   </Box>
                 </GridItem>
               );
@@ -144,7 +155,6 @@ function Products() {
       <Polo />
     </>
   );
-
 }
 
 export default Products;
