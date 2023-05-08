@@ -17,6 +17,10 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import styles from "../Styles/Cart.module.css";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import Navbar from "../Components/Navbar/Navbar";
+import Navbar2 from "../Components/Navbar/Navbar2";
+import Footer from "../Components/Footer/Footer";
+import BackToTop from "../Components/BackToTop/BackToTop";
 
 function Products() {
   const store = useSelector((store) => store.productReducer.products);
@@ -48,106 +52,113 @@ function Products() {
   }, [location.search, page]);
 
   return (
-    <DIV>
-      <Grid templateColumns="auto auto">
-        <Box>
-          <Sidebar />
-        </Box>
-        {/* <NavLink to={`/singleproduct/vitamin/1`}> */}
-        <Box width={"100%"}>
-          <Grid
-            templateColumns="repeat(4, 1fr)"
-            position="relative"
-            m={"auto"}
-            alignSelf={"center"}
-          >
-            {store.map((el) => {
-              return (
-                <NEWDIV>
-                  <Link to={`/singleproduct/vitamin/${el.id}`}>
-                    <GridItem className="zoom" mt={"20%"} p={"30px"}>
-                      <Text h={"150px"} w={"150px"}>
-                        <Img
-                          src={el.images[0]}
-                          width={"100%"}
-                          height={"100%"}
-                        ></Img>
-                      </Text>
-                      <Text
-                        fontWeight={500}
-                        fontSize={"14px"}
-                        className={`${styles.cartGreen} ${styles.cartUnderLine}`}
-                      >
-                        {el.title}
-                      </Text>
-                      <Text
-                        color={"gray.500"}
-                        fontWeight={500}
-                        display="inline"
-                        marginRight={"10px"}
-                        fontSize={"14px"}
-                      >
-                        {el.brand}
-                      </Text>
-                      <Text color={"teal"} display="inline">
-                        &#9733;&#9733;&#9733;&#9733;&#9734;
-                      </Text>
-                      {/* <Text
+    <>
+      <Navbar />
+      <Navbar2 />
+
+      <DIV>
+        <Grid templateColumns="auto auto">
+          <Box>
+            <Sidebar />
+          </Box>
+          {/* <NavLink to={`/singleproduct/vitamin/1`}> */}
+          <Box width={"100%"}>
+            <Grid
+              templateColumns="repeat(4, 1fr)"
+              position="relative"
+              m={"auto"}
+              alignSelf={"center"}
+            >
+              {store.map((el) => {
+                return (
+                  <NEWDIV>
+                    <Link to={`/singleproduct/vitamin/${el.id}`}>
+                      <GridItem className="zoom" mt={"20%"} p={"30px"}>
+                        <Text h={"150px"} w={"150px"}>
+                          <Img
+                            src={el.images[0]}
+                            width={"100%"}
+                            height={"100%"}
+                          ></Img>
+                        </Text>
+                        <Text
+                          fontWeight={500}
+                          fontSize={"14px"}
+                          className={`${styles.cartGreen} ${styles.cartUnderLine}`}
+                        >
+                          {el.title}
+                        </Text>
+                        <Text
+                          color={"gray.500"}
+                          fontWeight={500}
+                          display="inline"
+                          marginRight={"10px"}
+                          fontSize={"14px"}
+                        >
+                          {el.brand}
+                        </Text>
+                        <Text color={"teal"} display="inline">
+                          &#9733;&#9733;&#9733;&#9733;&#9734;
+                        </Text>
+                        {/* <Text
                   className={styles.purple}
                   m={"5px 0px"}
                   w={"100px"}
                 >
                   #1 Best Seller
                 </Text> */}
-                      <br />
-                      <Text
-                        fontWeight={500}
-                        display="inline"
-                        marginRight={"10px"}
-                        fontSize={"14px"}
-                      >
-                        ₹{el.price}
-                      </Text>
-                      <Text
-                        fontWeight={300}
-                        textDecoration="line-through"
-                        display="inline"
-                        fontSize={"14px"}
-                      >
-                        M.R.P ₹{4999 + Math.floor(Math.random() * 1000)}
-                      </Text>
-                      {/* <Text color={"gray.500"}>Get it by Friday, March 31</Text> */}
-                      <Text color={"gray.500"} fontSize={"14px"}>
-                        FREE Delivery over ₹499.
-                      </Text>
-                      <Text color={"#e47911"} fontSize={"14px"}>
-                        Fulfilled by Trendyshop.
-                      </Text>
-                    </GridItem>
-                  </Link>
-                </NEWDIV>
-              );
-            })}
-          </Grid>
-        </Box>
-        {/* </NavLink> */}
-      </Grid>
-      <Center>
-        <Flex gap={"20px"} mt={"2%"}>
-          <Button
-            onClick={() => handleChange(-1)}
-            isDisabled={page == 1 ? true : false}
-          >
-            Prev
-          </Button>
-          <Text fontSize={"20px"} pt={"3px"}>
-            {page}
-          </Text>
-          <Button onClick={() => handleChange(+1)}>Next</Button>
-        </Flex>
-      </Center>
-      <Polo />
-    </DIV>
+                        <br />
+                        <Text
+                          fontWeight={500}
+                          display="inline"
+                          marginRight={"10px"}
+                          fontSize={"14px"}
+                        >
+                          ₹{el.price}
+                        </Text>
+                        <Text
+                          fontWeight={300}
+                          textDecoration="line-through"
+                          display="inline"
+                          fontSize={"14px"}
+                        >
+                          M.R.P ₹{4999 + Math.floor(Math.random() * 1000)}
+                        </Text>
+                        {/* <Text color={"gray.500"}>Get it by Friday, March 31</Text> */}
+                        <Text color={"gray.500"} fontSize={"14px"}>
+                          FREE Delivery over ₹499.
+                        </Text>
+                        <Text color={"#e47911"} fontSize={"14px"}>
+                          Fulfilled by Trendyshop.
+                        </Text>
+                      </GridItem>
+                    </Link>
+                  </NEWDIV>
+                );
+              })}
+            </Grid>
+          </Box>
+          {/* </NavLink> */}
+        </Grid>
+        <Center>
+          <Flex gap={"20px"} mt={"2%"}>
+            <Button
+              onClick={() => handleChange(-1)}
+              isDisabled={page == 1 ? true : false}
+            >
+              Prev
+            </Button>
+            <Text fontSize={"20px"} pt={"3px"}>
+              {page}
+            </Text>
+            <Button onClick={() => handleChange(+1)}>Next</Button>
+          </Flex>
+        </Center>
+        <Polo />
+      </DIV>
+      <Footer />
+      <BackToTop />
+    </>
   );
 }
 

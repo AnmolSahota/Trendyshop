@@ -6,11 +6,17 @@ import { DisOurFav } from "../Components/HomePage/DisOurFav/DisOurFav";
 import { BeautyAdvice } from "../Components/HomePage/BeautyAdvice/BeautyAdvice";
 import OneImage from "../Components/HomePage/OneImage/OneImage";
 import EachDiv2 from "../Components/HomePage/EachDiv2/EachDiv2";
+import Navbar from "../Components/Navbar/Navbar";
+import Navbar2 from "../Components/Navbar/Navbar2";
+import Footer from "../Components/Footer/Footer";
+import BackToTop from "../Components/BackToTop/BackToTop";
 
 
 function Home() {
   return (
     <div>
+      <Navbar />
+      <Navbar2 />
       <SlideShow />
       <EachDiv />
       <DisOurFav />
@@ -23,6 +29,8 @@ function Home() {
           alt="emi" width={"100%"}
         />
       </div>
+      <Footer />
+      <BackToTop />
     </div>
   );
 }

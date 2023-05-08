@@ -14,6 +14,10 @@ import {
 } from "../Redux/CartReducer/action";
 import styles from "../Styles/Cart.module.css";
 import SingleProductLoading from "../Components/SingleProductLoading";
+import Navbar from "../Components/Navbar/Navbar";
+import Navbar2 from "../Components/Navbar/Navbar2";
+import Footer from "../Components/Footer/Footer";
+import BackToTop from "../Components/BackToTop/BackToTop";
 
 const SingleProduct = () => {
   let dispatch = useDispatch();
@@ -42,6 +46,9 @@ const SingleProduct = () => {
   }
 
   return (
+    <>
+     <Navbar />
+      <Navbar2 />
     <Box m={{ sm: "0px", md: "0px 10px" }}>
       <Box display="flex" justifyContent={"center"} m={"35px 0px"}>
         <Img src="https://m.media-amazon.com/images/I/21G8dTQtvdL.jpg"></Img>
@@ -468,6 +475,9 @@ const SingleProduct = () => {
       </Box>
       <Description />
     </Box>
+    <Footer />
+      <BackToTop />
+    </>
   );
 };
 

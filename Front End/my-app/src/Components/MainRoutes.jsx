@@ -24,25 +24,23 @@ import BackToTop from "./BackToTop/BackToTop";
 function MainRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<><Navbar/><Navbar2/><Home /><Footer/><BackToTop/></>}></Route>
+      <Route path="/" element={<Home />}></Route>
       <Route path="/admin" element={<Admin />}></Route>
-      <Route path="/payment" element={<><Navbar/><Payment /><Footer/><BackToTop/></>}></Route>
-      <Route path="/product" element={<><Navbar/><Navbar2/><Products /><Footer/><BackToTop/></>}></Route>
+      <Route path="/payment" element={<Payment />}></Route>
+      <Route path="/product" element={<Products />}></Route>
       <Route
         path="/singleproduct/:category/:id"
-        element={<><Navbar/><Navbar2/><SingleProduct /><Footer/><BackToTop/></>}
+        element={<SingleProduct />}
       ></Route>
-      <Route path="/cart" element={<><Navbar/><Navbar2/><Cart /><Footer/><BackToTop/></>}></Route>
-      <Route path="/signin" element={<><Navbar/><Login /><Footer/><BackToTop/></>}></Route>
-      <Route path="/signup" element={<><Navbar/><Register /><Footer/><BackToTop/></>}></Route>
+      <Route path="/cart" element={<Cart />}></Route>
+      <Route path="/signin" element={<Login />}></Route>
+      <Route path="/signup" element={<Register />}></Route>
       <Route
         path="*"
         element={
-          <><Navbar/><Navbar2/>
           <h1 style={{ fontSize: "80px", textAlign: "center" }}>
             Oops!!! 😕 Page Not Found
           </h1>
-          <Footer/><BackToTop/></>
         }
       ></Route>
 
@@ -53,7 +51,6 @@ function MainRoutes() {
         path="/dashboard"
         element={
           <AdminPrivateroute>
-            {" "}
             <Dashboard />
           </AdminPrivateroute>
         }
@@ -62,7 +59,6 @@ function MainRoutes() {
         path="/dashboard/userdetails"
         element={
           <AdminPrivateroute>
-            {" "}
             <Userdetails />
           </AdminPrivateroute>
         }
@@ -71,7 +67,6 @@ function MainRoutes() {
         path="/dashboard/editproduct"
         element={
           <AdminPrivateroute>
-            {" "}
             <Editproudct />
           </AdminPrivateroute>
         }
@@ -80,7 +75,6 @@ function MainRoutes() {
         path="/dashboard/allproducts"
         element={
           <AdminPrivateroute>
-            {" "}
             <Allproduct />
           </AdminPrivateroute>
         }
@@ -94,8 +88,6 @@ function MainRoutes() {
         }
       />
       <Route path="/Thankyou" element={<Thankyou />} />
-
-      {/*  */}
     </Routes>
   );
 }

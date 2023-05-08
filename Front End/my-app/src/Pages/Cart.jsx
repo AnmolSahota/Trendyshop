@@ -26,6 +26,10 @@ import arr, {
 } from "../Redux/CartReducer/action";
 import SaveLater from "../Components/SaveLater";
 import CartLoading from "../Components/CartLoading";
+import Navbar from "../Components/Navbar/Navbar";
+import Navbar2 from "../Components/Navbar/Navbar2";
+import Footer from "../Components/Footer/Footer";
+import BackToTop from "../Components/BackToTop/BackToTop";
 function Cart() {
   const [data, setdata] = useState([]);
   const [block, setblock] = useState(false);
@@ -65,6 +69,8 @@ function Cart() {
 
   return (
     <>
+    <Navbar />
+      <Navbar2 />     
       <Grid
         gridTemplateColumns={{ sm: "repeat(1,1fr)", md: "1fr 25%" }}
         p={"20px"}
@@ -334,6 +340,8 @@ function Cart() {
         </GridItem>
       </Grid>
       <SaveLater />
+      <Footer />
+      <BackToTop />
     </>
   );
 }

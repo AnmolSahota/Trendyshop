@@ -25,6 +25,10 @@ import {
   postAddress,
 } from "../Redux/CartReducer/action";
 import { useEffect } from "react";
+import Navbar from "../Components/Navbar/Navbar";
+import Navbar2 from "../Components/Navbar/Navbar2";
+import Footer from "../Components/Footer/Footer";
+import BackToTop from "../Components/BackToTop/BackToTop";
 let initial = {
   state: "Maharashtra",
   pincode: "",
@@ -105,6 +109,9 @@ const Payment = () => {
 
   return (
     <>
+     <Navbar />
+      <Navbar2 />
+   
       <Flex
         bg={"#f7f7f7"}
         justifyContent={"space-around"}
@@ -786,6 +793,8 @@ const Payment = () => {
           </button>
         </Box>
       </GridItem>
+      <Footer />
+      <BackToTop />
     </>
   );
 };
