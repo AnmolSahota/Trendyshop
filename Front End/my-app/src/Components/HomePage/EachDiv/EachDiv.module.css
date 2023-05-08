@@ -19,8 +19,30 @@
 }
 .caption {
   margin: auto;
-  width: 70%;
+  width: 90%;
   font-weight: 600;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .eachDiv {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .caption {
+    width: 100%;
+    font-weight: 600;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .eachDiv {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .caption {
+    width: 100%;
+    font-weight: 600;
+    font-size: 12px;
+  }
 }

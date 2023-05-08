@@ -42,7 +42,7 @@ const EachDiv = () => {
       </div>
       <div>
         <div>
-          <p className={styles.caption}>Sale on Electronics items</p>
+          <p className={styles.caption}>Sale on Electronics</p>
           <img
             src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG23/TVs/Sabeer/MAY_ART_Teaser/TCL_Purple_PC_QuadCard_372X2321._SY232_CB592184961_.jpg"
             alt=""
