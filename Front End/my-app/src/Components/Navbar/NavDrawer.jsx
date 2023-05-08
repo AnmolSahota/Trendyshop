@@ -52,7 +52,7 @@ export default function NavDrawer() {
               Trending Products
             </Heading>
             <Text fontSize="lg" lineHeight={"30px"}>
-              <Link to={"/products"}>All products</Link>
+              <Link to={"/product"}>All products</Link>
             </Text>
             <Text fontSize="lg" lineHeight={"30px"}>
               Electronics

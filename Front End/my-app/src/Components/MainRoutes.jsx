@@ -16,39 +16,85 @@ import Allproduct from "../Admin/Pages/Allproduct";
 import Singleprodcutedit from "../Admin/Pages/Singleprodcutedit";
 import AdminPrivateroute from "../Admin/Privateroute/AdminPrivateroute";
 import Thankyou from "../Pages/ThankYou";
-
-
+import Navbar from "./Navbar/Navbar";
+import Navbar2 from "./Navbar/Navbar2";
+import Footer from "./Footer/Footer";
+import BackToTop from "./BackToTop/BackToTop";
 
 function MainRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
+      <Route path="/" element={<><Navbar/><Navbar2/><Home /><Footer/><BackToTop/></>}></Route>
       <Route path="/admin" element={<Admin />}></Route>
-      <Route path="/payment" element={<Payment />}></Route>
-      <Route path="/product" element={<Products />}></Route>
-      <Route path="/singleProduct/:category/:id" element={<SingleProduct />}></Route>
-      <Route path="/cart" element={<Cart />}></Route>
-      <Route path="/signin" element={<Login />}></Route>
-      <Route path="/signup" element={<Register />}></Route>
+      <Route path="/payment" element={<><Navbar/><Payment /><Footer/><BackToTop/></>}></Route>
+      <Route path="/product" element={<><Navbar/><Navbar2/><Products /><Footer/><BackToTop/></>}></Route>
+      <Route
+        path="/singleProduct/:category/:id"
+        element={<><Navbar/><Navbar2/><SingleProduct /><Footer/><BackToTop/></>}
+      ></Route>
+      <Route path="/cart" element={<><Navbar/><Navbar2/><Cart /><Footer/><BackToTop/></>}></Route>
+      <Route path="/signin" element={<><Navbar/><Login /><Footer/><BackToTop/></>}></Route>
+      <Route path="/signup" element={<><Navbar/><Register /><Footer/><BackToTop/></>}></Route>
       <Route
         path="*"
         element={
+          <><Navbar/><Navbar2/>
           <h1 style={{ fontSize: "80px", textAlign: "center" }}>
             Oops!!! 😕 Page Not Found
           </h1>
+          <Footer/><BackToTop/></>
         }
       ></Route>
 
-       {/* Admin */}
-      
-        <Route path='/adminlogin' element={<AdminLogin />}/> 
-        <Route path='/dashboard' element={ <AdminPrivateroute> <Dashboard /></AdminPrivateroute>}/> 
-        <Route path='/dashboard/userdetails' element={<AdminPrivateroute> <Userdetails /></AdminPrivateroute>}/>
-        <Route path='/dashboard/editproduct' element={<AdminPrivateroute> <Editproudct /></AdminPrivateroute>}/>
-        <Route path='/dashboard/allproducts' element={<AdminPrivateroute> <Allproduct /></AdminPrivateroute>}/>
-        <Route path='/dashboard/singleproductedit/:id' element={<AdminPrivateroute><Singleprodcutedit /></AdminPrivateroute>} />
-        <Route path='/Thankyou' element={<Thankyou />}/> 
-         
+      {/* Admin */}
+
+      <Route path="/adminlogin" element={<AdminLogin />} />
+      <Route
+        path="/dashboard"
+        element={
+          <AdminPrivateroute>
+            {" "}
+            <Dashboard />
+          </AdminPrivateroute>
+        }
+      />
+      <Route
+        path="/dashboard/userdetails"
+        element={
+          <AdminPrivateroute>
+            {" "}
+            <Userdetails />
+          </AdminPrivateroute>
+        }
+      />
+      <Route
+        path="/dashboard/editproduct"
+        element={
+          <AdminPrivateroute>
+            {" "}
+            <Editproudct />
+          </AdminPrivateroute>
+        }
+      />
+      <Route
+        path="/dashboard/allproducts"
+        element={
+          <AdminPrivateroute>
+            {" "}
+            <Allproduct />
+          </AdminPrivateroute>
+        }
+      />
+      <Route
+        path="/dashboard/singleproductedit/:id"
+        element={
+          <AdminPrivateroute>
+            <Singleprodcutedit />
+          </AdminPrivateroute>
+        }
+      />
+      <Route path="/Thankyou" element={<Thankyou />} />
+
       {/*  */}
     </Routes>
   );
