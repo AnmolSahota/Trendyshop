@@ -48,7 +48,7 @@ export default function Registration() {
       axios.post('https://dizzy-yak-sunglasses.cyclic.app/user/register', obj)
         .then((res) => {
           alert("Account Created")
-          navigate('/login')
+          navigate('/signin')
         })
         .catch((err) => console.log(err))
 

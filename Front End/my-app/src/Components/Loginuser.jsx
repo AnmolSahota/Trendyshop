@@ -38,6 +38,8 @@ export default function Loginuser() {
         .then((res) => {
           localStorage.setItem("Token", res.data.Token);
           localStorage.setItem("Auth", true);
+          localStorage.setItem("name",res.data.user.name)
+
           alert("login Successfull");
           dispatch(loginSuccess);
           navigate("/");

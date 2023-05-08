@@ -19,8 +19,8 @@ const rootReducer = combineReducers({
   productReducer,
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 export const store = legacy_createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
+ (applyMiddleware(thunk))
 );
