@@ -42,13 +42,13 @@ function Products() {
     },
   };
 
-  console.log(store);
+  // console.log(store);
   useEffect(() => {
-    dispatch(getVitamins(obj));
+    // dispatch(getVitamins(obj));
   }, [location.search, page]);
 
   return (
-    <>
+    <DIV>
       <Grid templateColumns="auto auto">
         <Box>
           <Sidebar />
@@ -58,75 +58,74 @@ function Products() {
           <Grid
             templateColumns="repeat(4, 1fr)"
             position="relative"
-            overflow="hidden"
-            zIndex={-1}
-            overflowX="hidden"
             m={"auto"}
             alignSelf={"center"}
           >
             {store.map((el) => {
               return (
-                <GridItem className="zoom" mt={"20%"} p={"30px"}>
-                  <Link to="/singleproduct/vitamin/1">
-                    <Text h={"150px"} w={"150px"}>
-                      <Img
-                        src={el.images[0]}
-                        width={"100%"}
-                        height={"100%"}
-                      ></Img>
-                    </Text>
-                  </Link>
-                  <Text
-                    fontWeight={500}
-                    fontSize={"14px"}
-                    className={`${styles.cartGreen} ${styles.cartUnderLine}`}
-                  >
-                    {el.title}
-                  </Text>
-                  <Text
-                    color={"gray.500"}
-                    fontWeight={500}
-                    display="inline"
-                    marginRight={"10px"}
-                    fontSize={"14px"}
-                  >
-                    {el.brand}
-                  </Text>
-                  <Text color={"teal"} display="inline">
-                    &#9733;&#9733;&#9733;&#9733;&#9734;
-                  </Text>
-                  {/* <Text
+                <NEWDIV>
+                  <Link to={`/singleproduct/vitamin/${el.id}`}>
+                    <GridItem className="zoom" mt={"20%"} p={"30px"}>
+                      <Text h={"150px"} w={"150px"}>
+                        <Img
+                          src={el.images[0]}
+                          width={"100%"}
+                          height={"100%"}
+                        ></Img>
+                      </Text>
+                      <Text
+                        fontWeight={500}
+                        fontSize={"14px"}
+                        className={`${styles.cartGreen} ${styles.cartUnderLine}`}
+                      >
+                        {el.title}
+                      </Text>
+                      <Text
+                        color={"gray.500"}
+                        fontWeight={500}
+                        display="inline"
+                        marginRight={"10px"}
+                        fontSize={"14px"}
+                      >
+                        {el.brand}
+                      </Text>
+                      <Text color={"teal"} display="inline">
+                        &#9733;&#9733;&#9733;&#9733;&#9734;
+                      </Text>
+                      {/* <Text
                   className={styles.purple}
                   m={"5px 0px"}
                   w={"100px"}
                 >
                   #1 Best Seller
                 </Text> */}
-                  <br />
-                  <Text
-                    fontWeight={500}
-                    display="inline"
-                    marginRight={"10px"}
-                    fontSize={"14px"}
-                  >
-                    ₹{el.price}
-                  </Text>
-                  <Text
-                    fontWeight={300}
-                    textDecoration="line-through"
-                    display="inline"
-                    fontSize={"14px"}
-                  >
-                    M.R.P ₹{4999 + Math.floor(Math.random() * 1000)}
-                  </Text>
-                  {/* <Text color={"gray.500"}>Get it by Friday, March 31</Text> */}
-                  <Text color={"gray.500"} fontSize={"14px"}>
-                    FREE Delivery over ₹499.
-                  </Text>
-                  <Text color={"#e47911"} fontSize={"14px"}>
-                    Fulfilled by Trendyshop.
-                  </Text>
-                </GridItem>
+                      <br />
+                      <Text
+                        fontWeight={500}
+                        display="inline"
+                        marginRight={"10px"}
+                        fontSize={"14px"}
+                      >
+                        ₹{el.price}
+                      </Text>
+                      <Text
+                        fontWeight={300}
+                        textDecoration="line-through"
+                        display="inline"
+                        fontSize={"14px"}
+                      >
+                        M.R.P ₹{4999 + Math.floor(Math.random() * 1000)}
+                      </Text>
+                      {/* <Text color={"gray.500"}>Get it by Friday, March 31</Text> */}
+                      <Text color={"gray.500"} fontSize={"14px"}>
+                        FREE Delivery over ₹499.
+                      </Text>
+                      <Text color={"#e47911"} fontSize={"14px"}>
+                        Fulfilled by Trendyshop.
+                      </Text>
+                    </GridItem>
+                  </Link>
+                </NEWDIV>
               );
             })}
           </Grid>
@@ -148,23 +147,23 @@ function Products() {
         </Flex>
       </Center>
       <Polo />
-    </>
+    </DIV>
   );
 }
 
-// const DIV = styled.div`
-//   width: 90%;
-//   margin: auto;
-// `;
+const DIV = styled.div`
+  width: 90%;
+  margin: auto;
+`;
 
-// const NEWDIV = styled.div`
-//   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
-//     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-//   .zoom {
-//     transition: transform 0.2s;
-//   }
-//   .zoom:hover {
-//     transform: scale(1.5);
-//   }
-// `;
+const NEWDIV = styled.div`
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  .zoom {
+    transition: transform 0.2s;
+  }
+  .zoom:hover {
+    transform: scale(1.1);
+  }
+`;
 export default Products;
