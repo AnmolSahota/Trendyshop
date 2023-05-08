@@ -189,7 +189,7 @@ export default function SideBar() {
 
   return (
     <Container>
-      <Box m={1} color="black" p="10px">
+      <Box  color="black" p="10px">
         <Heading color={"teal"} as="h5" size="sm">
           Vitamins
         </Heading>
