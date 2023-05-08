@@ -29,7 +29,7 @@ function MainRoutes() {
       <Route path="/payment" element={<><Navbar/><Payment /><Footer/><BackToTop/></>}></Route>
       <Route path="/product" element={<><Navbar/><Navbar2/><Products /><Footer/><BackToTop/></>}></Route>
       <Route
-        path="/singleProduct/:category/:id"
+        path="/singleproduct/:category/:id"
         element={<><Navbar/><Navbar2/><SingleProduct /><Footer/><BackToTop/></>}
       ></Route>
       <Route path="/cart" element={<><Navbar/><Navbar2/><Cart /><Footer/><BackToTop/></>}></Route>
