@@ -422,9 +422,9 @@ const DesktopNav = () => {
               <Link
                 onClick={() => {
                   setQuery("");
-                  // window.reload();
+                  window.reload();
                 }}
-                // to={`/product/${item.id}`}
+                to={`/singleProduct/vitamin/${item.id}`}
               >
                 <Text textAlign={"center"} color={"black"} cursor={"pointer"}>
                   {item.title}
