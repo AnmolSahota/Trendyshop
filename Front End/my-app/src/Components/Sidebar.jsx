@@ -90,7 +90,10 @@ const Sidebar = () => {
                     )}
                   </AccordionButton>
                 </h2>
+
                 {/* <Checkbox>Vitamin C</Checkbox> */}
+
+                <Checkbox>Vitamin C</Checkbox>
                 <AccordionPanel pb={4} w={"30%"}>
                   <Checkbox
                     name={"Vitamin A"}
