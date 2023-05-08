@@ -81,7 +81,7 @@ const SingleProduct = () => {
                 src={img[0]}
                 // border={"1px solid teal"}
                 height={{ base: "50%", md: "20%" }}
-                width={"80%"}
+                width={"60%"}
               ></Img>
             </GridItem>
             <GridItem>
