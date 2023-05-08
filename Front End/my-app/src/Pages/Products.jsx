@@ -141,7 +141,7 @@ function Products() {
           {/* </NavLink> */}
         </Grid>
         <Center>
-          <Flex gap={"20px"} mt={"2%"}>
+          {/* <Flex gap={"20px"} mt={"2%"}>
             <Button
               onClick={() => handleChange(-1)}
               isDisabled={page == 1 ? true : false}
@@ -152,7 +152,7 @@ function Products() {
               {page}
             </Text>
             <Button onClick={() => handleChange(+1)}>Next</Button>
-          </Flex>
+          </Flex> */}
         </Center>
         <Polo />
       </DIV>
