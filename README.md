@@ -29,7 +29,7 @@ Trendyshop is a clone of Amazon which is made by a group of 4 members in a span 
 
            
 <h3>Screenshots:</h3>
-<img src="src/images/ScreenShot.PNG" alt="screenshot" /> 
+<img src="Front End/myapp/src/images/ScreenShot.PNG" alt="screenshot" /> 
 
 <h3>Technologies Used:</h3>
 <ul>
