@@ -32,6 +32,8 @@ import { useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import img from "../Assets/trendy1.jpeg";
 import NavDrawer from "./NavDrawer";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartData } from "../../Redux/CartReducer/action";
 
 const NAV_ITEMS = [
   {
@@ -63,8 +65,15 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const { cartData } = useSelector((state)=>state.cartReducer)
+  const dispatch = useDispatch()
   const toast = useToast();
 
+  useEffect(()=>{
+    getCartData(dispatch)
+  },[])
+
+  console.log(cartData.length)
   const logoutSuccess = () => {
     toast({
       title: "Logout Successful.",
@@ -138,13 +147,13 @@ export default function Navbar() {
                 >
                   <BsFillBagCheckFill style={{ color: "white" }} />
                   <Tooltip
-                    label={`You have ${0} items in the cart`}
+                    label={`You have ${cartData.length} items in the cart`}
                     fontSize="md"
                     background="lightgrey"
                     color={"black"}
                   >
                     <span style={{ marginLeft: "4px", color: "white" }}>
-                      Cart : {0}
+                      Cart : {cartData.length}
                     </span>
                   </Tooltip>
                 </Button>

@@ -92,9 +92,9 @@ const Payment = () => {
       alert("please fill details first");
     }
     if (submit == true) {
-      // deleteAllCart();
+      deleteAllCart();
       orderPost(cartData);
-      // navigate("/thankyou");
+      navigate("/thankyou");
     }
   };
   let handleDeleteAdress = (id) => {

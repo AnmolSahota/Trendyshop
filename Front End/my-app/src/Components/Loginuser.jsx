@@ -29,7 +29,7 @@ export default function Loginuser() {
       email,
       password,
     };
-
+    // anmol@gmail.com  
     if (email === "" || password === "") {
       alert("Please fill all the details");
     } else {
@@ -38,7 +38,10 @@ export default function Loginuser() {
         .then((res) => {
           localStorage.setItem("Token", res.data.Token);
           localStorage.setItem("Auth", true);
-          localStorage.setItem("name",res.data.user.name)
+          let arr=[]
+          arr[0]=res.data.user.name.split(" ")
+          localStorage.setItem("name", arr[0][0]);
+
 
           alert("login Successfull");
           dispatch(loginSuccess);

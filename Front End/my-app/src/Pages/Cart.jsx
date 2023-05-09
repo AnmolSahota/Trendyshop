@@ -63,9 +63,9 @@ function Cart() {
     gettotalAMT(cartData, dispatch);
   }, []);
 
-  if (isLoading) {
-    return <CartLoading />;
-  }
+  // if (isLoading) {
+  //   return <CartLoading />;
+  // }
 
   return (
     <>
