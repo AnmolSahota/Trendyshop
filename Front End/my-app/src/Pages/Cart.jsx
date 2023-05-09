@@ -35,6 +35,8 @@ import "react-toastify/dist/ReactToastify.css";
 function Cart() {
   const [data, setdata] = useState([]);
   const [block, setblock] = useState(false);
+
+  
   const [selectcheck, setselect] = useState(true);
   let { cartData, total, isLoading } = useSelector(
     (state) => state.cartReducer
