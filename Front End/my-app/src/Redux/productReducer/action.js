@@ -24,7 +24,7 @@ export const getVitaminsside = (obj) => (dispatch) => {
     })
     .then((res) => {
       dispatch({ type: PRODUCTSUCCESS, payload: res.data });
-      console.log(res.data);
+      // console.log(res.data);
     })
     .catch((err) => {
       dispatch(PRODUCTFAILURE);

@@ -30,7 +30,7 @@ function Products() {
   const initPage = searchParams.get("page");
   const [page, setPage] = useState(initPage || 1);
 
-  console.log(initPage);
+  // console.log(initPage);
   const handleChange = (payload) => {
     setPage((prev) => prev + payload);
     setSearchParams(page);

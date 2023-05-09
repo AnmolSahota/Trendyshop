@@ -30,6 +30,8 @@ import Navbar from "../Components/Navbar/Navbar";
 import Navbar2 from "../Components/Navbar/Navbar2";
 import Footer from "../Components/Footer/Footer";
 import BackToTop from "../Components/BackToTop/BackToTop";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Cart() {
   const [data, setdata] = useState([]);
   const [block, setblock] = useState(false);
@@ -39,6 +41,12 @@ function Cart() {
   );
   let dispatch = useDispatch();
 
+  const showToastMessage = (data) => {
+    toast.success(data, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
   let handlequantity = (id, value) => {
     updateCartData(id, value, dispatch).finally(() =>
       gettotalAMT(cartData, dispatch)
@@ -47,11 +55,13 @@ function Cart() {
 
   let handleDelete = (id) => {
     deleteCartData(id, dispatch);
+    showToastMessage("Product has deleted  !");
   };
 
   let handleLater = (el) => {
     saveLater(el, dispatch);
     gettotalAMT(cartData, dispatch);
+    showToastMessage("Product has added for later  !");
   };
   let handleAdd = (el) => {
     handleAddActionfour(el, 1, dispatch);
@@ -69,8 +79,8 @@ function Cart() {
 
   return (
     <>
-    <Navbar />
-      <Navbar2 />     
+      <Navbar />
+      <Navbar2 />
       <Grid
         gridTemplateColumns={{ sm: "repeat(1,1fr)", md: "1fr 25%" }}
         p={"20px"}
@@ -207,6 +217,7 @@ function Cart() {
                         Save For Later
                       </Text>
                     </Text>
+                    <ToastContainer />
                   </GridItem>
                 </Grid>
               );

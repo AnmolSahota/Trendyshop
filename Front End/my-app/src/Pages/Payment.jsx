@@ -17,6 +17,10 @@ import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/Trendyshop.png";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import {
   deleteAdress,
   deleteAllCart,
@@ -50,6 +54,25 @@ const Payment = () => {
   const [alldata, setalldata] = useState([]);
   const [addressBG, setaddressBG] = useState();
   const [shownewAdd, setshownewAdd] = useState(false);
+
+  const showToastMessage = (data) => {
+    toast.success(data, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
+  const showWrong = (data) => {
+    toast.error(data, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
+  const defaultNotify = () => {
+    toast("Adress Deleted !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
   let handlebg = (e) => {
     setcolor(e.target.value);
   };
@@ -59,11 +82,12 @@ const Payment = () => {
   let handleSubmit = (e) => {
     e.preventDefault();
     if (address.mobilenubmer.length < 10) {
-      alert("Enter Valid Number");
+      showWrong("Enter Valid Number");
+      // alert("Enter Valid Number");
       return;
     }
-
-    alert("Details has been submited");
+    showToastMessage("Details has been submited");
+    // alert("Details has been submited");
     postAddress(address);
     getAdress().then((res) => setalldata(res.data));
     setshowpayment(true);
@@ -89,7 +113,8 @@ const Payment = () => {
   let navigate = useNavigate();
   let submiterror = () => {
     if (submit == false) {
-      alert("please fill details first");
+      showWrong("please fill details first");
+      // alert("please fill details first");
     }
     if (submit == true) {
       deleteAllCart();
@@ -99,7 +124,10 @@ const Payment = () => {
   };
   let handleDeleteAdress = (id) => {
     deleteAdress(id).then((res) => {
-      getAdress().then((res) => setalldata(res.data));
+      getAdress().then((res) => {
+        defaultNotify();
+        setalldata(res.data);
+      });
     });
   };
 
@@ -109,9 +137,9 @@ const Payment = () => {
 
   return (
     <>
-     <Navbar />
+      <Navbar />
       <Navbar2 />
-   
+
       <Flex
         bg={"#f7f7f7"}
         justifyContent={"space-around"}
@@ -151,12 +179,18 @@ const Payment = () => {
                   i != alldata.length - 1 ? "1px solid #d5d9d9" : "none"
                 }
                 onClick={() => {
-                  alert("Adress has been Selected");
+                  // alert("Adress has been Selected");
                   handleAdressBG(i);
                 }}
               >
                 <Text>
-                  <input type="radio" name="adress"></input>
+                  <input
+                    type="radio"
+                    name="adress"
+                    onClick={() =>
+                      showToastMessage("Adress has been Selected !")
+                    }
+                  ></input>
                   <Text
                     display={"inline-block"}
                     fontWeight={"bold"}
@@ -642,7 +676,8 @@ const Payment = () => {
               className={styles.PaymenUsebtn}
               style={{ marginLeft: "15px" }}
               onClick={() => {
-                alert("Payment method has selected");
+                showToastMessage("Payment method has selected");
+                // alert("Payment method has selected");
               }}
             >
               Use this payment method
@@ -795,6 +830,7 @@ const Payment = () => {
       </GridItem>
       <Footer />
       <BackToTop />
+      <ToastContainer />
     </>
   );
 };

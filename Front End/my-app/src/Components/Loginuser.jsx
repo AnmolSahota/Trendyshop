@@ -19,17 +19,33 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../Redux/LoginReducer/action";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Loginuser() {
   let dispatch = useDispatch();
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
+
+  const showToastMessage = () => {
+    toast.success("Login Success !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
+
+  const showWrong=()=>{
+    toast.error('Wrong Credential !', {
+      position: toast.POSITION.TOP_RIGHT
+  });
+  }
+
+
   const handlelogin = () => {
     const obj = {
       email,
       password,
     };
-    // anmol@gmail.com  
+    // anmol@gmail.com
     if (email === "" || password === "") {
       alert("Please fill all the details");
     } else {
@@ -38,17 +54,20 @@ export default function Loginuser() {
         .then((res) => {
           localStorage.setItem("Token", res.data.Token);
           localStorage.setItem("Auth", true);
-          let arr=[]
-          arr[0]=res.data.user.name.split(" ")
+          let arr = [];
+          arr[0] = res.data.user.name.split(" ");
           localStorage.setItem("name", arr[0][0]);
+          showToastMessage();
 
-
-          alert("login Successfull");
+          // alert("login Successfull");
           dispatch(loginSuccess);
-          navigate("/");
+          setTimeout(() => {
+            navigate("/");
+          }, 1500);
         })
         .catch((err) => {
-          alert("Wrong Credential");
+          showWrong()
+          // alert("Wrong Credential");
           console.log(err);
         });
     }
@@ -105,6 +124,7 @@ export default function Loginuser() {
               >
                 Sign in
               </Button>
+              <ToastContainer />
             </Stack>
           </Stack>
         </Box>
