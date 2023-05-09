@@ -9,6 +9,7 @@ import NocostEmiDrawer from "../Components/NocostEmiDrawer";
 import PartnerOfferDrawer from "../Components/PartnerOfferDrawer";
 import Toster from "../Components/Toster";
 import {
+  getCartData,
   getSingleProductAction,
   handleAddAction,
 } from "../Redux/CartReducer/action";
@@ -36,6 +37,7 @@ const SingleProduct = () => {
   }, []);
   let addSingleProduct = () => {
     handleAddAction(data, quan, dispatch);
+    getCartData(dispatch)
   };
   let handleChangeSingle = (e) => {
     setquan(e.target.value);

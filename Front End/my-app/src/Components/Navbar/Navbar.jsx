@@ -73,7 +73,7 @@ export default function Navbar() {
     getCartData(dispatch)
   },[])
 
-  console.log(cartData.length)
+  // console.log(cartData.length)
   const logoutSuccess = () => {
     toast({
       title: "Logout Successful.",
