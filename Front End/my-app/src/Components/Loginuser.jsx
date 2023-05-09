@@ -16,7 +16,7 @@ import {
 import Trendy from "../images/Trendyshop.png";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../Redux/LoginReducer/action";
 import { ToastContainer, toast } from "react-toastify";
@@ -26,19 +26,18 @@ export default function Loginuser() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const navigate = useNavigate();
-
+  let location = useLocation();
   const showToastMessage = () => {
     toast.success("Login Success !", {
       position: toast.POSITION.TOP_RIGHT,
     });
   };
 
-  const showWrong=()=>{
-    toast.error('Wrong Credential !', {
-      position: toast.POSITION.TOP_RIGHT
-  });
-  }
-
+  const showWrong = () => {
+    toast.error("Wrong Credential !", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  };
 
   const handlelogin = () => {
     const obj = {
@@ -62,11 +61,11 @@ export default function Loginuser() {
           // alert("login Successfull");
           dispatch(loginSuccess);
           setTimeout(() => {
-            navigate("/");
+            navigate(location.state);
           }, 1500);
         })
         .catch((err) => {
-          showWrong()
+          showWrong();
           // alert("Wrong Credential");
           console.log(err);
         });

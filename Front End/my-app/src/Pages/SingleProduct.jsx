@@ -2,12 +2,16 @@ import { Box, Grid, GridItem, Img, Select, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { AiFillAmazonCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import {
+  Navigate,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import BankofferDrawer from "../Components/BankofferDrawer";
 import Description from "../Components/Description";
 import NocostEmiDrawer from "../Components/NocostEmiDrawer";
 import PartnerOfferDrawer from "../Components/PartnerOfferDrawer";
-import Toster from "../Components/Toster";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -23,6 +27,9 @@ import Footer from "../Components/Footer/Footer";
 import BackToTop from "../Components/BackToTop/BackToTop";
 
 const SingleProduct = () => {
+  let location = useLocation();
+  // console.log(location);
+  const navigate = useNavigate();
   const showToastMessage = () => {
     toast.success("Product has been added !", {
       position: toast.POSITION.TOP_RIGHT,
@@ -56,6 +63,9 @@ const SingleProduct = () => {
       getCartData(dispatch);
       showToastMessage();
     } else {
+      setTimeout(() => {
+        navigate("/signin", { state: location.pathname });
+      }, 1500);
       showWrong();
     }
   };
